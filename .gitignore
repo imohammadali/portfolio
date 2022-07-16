@@ -2,3 +2,5 @@
 /public
 .idea
 .cache
+/.cache
+./.cache
