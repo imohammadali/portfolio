@@ -1,7 +1,7 @@
 ---
 date: '1'
 title: 'Iranigram Website'
-cover: './iranigram.png'
+cover: './iranigram.webp'
 github: ''
 external: 'https://iranigram.com/'
 tech:

@@ -1,7 +1,7 @@
 ---
 date: '3'
 title: 'Noyaar'
-cover: './Noyaar.png'
+cover: './Noyaar.webp'
 github: ''
 external: 'https://noyaar.org/'
 tech:

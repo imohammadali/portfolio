@@ -1,7 +1,7 @@
 ---
 date: '2'
 title: 'EMP'
-cover: './EMP.png'
+cover: './EMP.webp'
 github: ''
 external: 'https://emp.irancell.ir/admin/auth'
 tech:
