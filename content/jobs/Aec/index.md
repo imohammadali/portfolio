@@ -9,5 +9,3 @@ url: 'https://ravanertebat.com/'
 
 - Developed admin panel for some projects like EMP of https://irancell.ir with Angular and Bootstrap
 - Create a web app for creating online shops and managing payments at https://bab.ir
-
-

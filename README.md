@@ -11,5 +11,4 @@ Check out the live demo: https://iammohammadali.ir/
 1. Clone this repository in your local system.
 2. Open the command prompt from your project directory and run the command `npm install`.
 3. Open the command prompt from your project directory and run the command `npm start`.
-5. Hurray! That's it.
-
+4. Hurray! That's it.

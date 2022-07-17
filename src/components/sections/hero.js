@@ -63,18 +63,11 @@ const Hero = () => {
   const three = <h3 className="big-heading">I build things for the web.</h3>;
   const four = (
     <>
-      <p>
-        I’m a software engineer specializing in building web applications and websites
-        .
-      </p>
+      <p>I’m a software engineer specializing in building web applications and websites .</p>
     </>
   );
   const five = (
-    <a
-      className="email-link"
-      href="/resume.pdf"
-      target="_blank"
-      rel="noreferrer">
+    <a className="email-link" href="/resume.pdf" target="_blank" rel="noreferrer">
       See My Resume
     </a>
   );

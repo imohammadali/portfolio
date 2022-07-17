@@ -7,5 +7,5 @@ range: 'Jan - July 2018'
 url: 'https://reactapp.ir/'
 ---
 
-- Developed and shipped highly interactive web applications 
+- Developed and shipped highly interactive web applications
 - Write some articles on this website

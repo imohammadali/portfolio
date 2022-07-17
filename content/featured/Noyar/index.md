@@ -12,4 +12,4 @@ tech:
   - CSS
 ---
 
-Admin panel for noyaar.org website to management online services on website 
+Admin panel for noyaar.org website to management online services on website
