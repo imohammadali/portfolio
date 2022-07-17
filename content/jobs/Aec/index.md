@@ -7,5 +7,7 @@ range: '2018 - 2021'
 url: 'https://ravanertebat.com/'
 ---
 
-- Developed admin panel for some projects like EMP of irancell.ir with Angular and bootsrtap
-- Create web app for creating shop and manage payment in bab.ir
+- Developed admin panel for some projects like EMP of https://irancell.ir with Angular and Bootstrap
+- Create a web app for creating online shops and managing payments at https://bab.ir
+
+

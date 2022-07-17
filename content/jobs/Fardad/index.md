@@ -8,4 +8,4 @@ url: 'https://reactapp.ir/'
 ---
 
 - Developed and shipped highly interactive web applications 
-- Write some articles in this website
+- Write some articles on this website
