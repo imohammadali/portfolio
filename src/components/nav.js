@@ -8,6 +8,7 @@ import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 import { IconLogo } from '@components/icons';
+import { useTheme } from '../context/themeContext';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -157,6 +158,7 @@ const Nav = ({ isHome }) => {
   const timeout = isHome ? loaderDelay : 0;
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
+  const { dispatch } = useTheme('dark');
 
   const Logo = (
     <div className="logo" tabIndex="-1">
@@ -177,6 +179,11 @@ const Nav = ({ isHome }) => {
       Resume
     </a>
   );
+  const changeThemeButton = (
+    <button className="change-theme" onClick={() => dispatch({ type: 'toggle' })}>
+      change theme
+    </button>
+  );
 
   return (
     <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
@@ -195,6 +202,7 @@ const Nav = ({ isHome }) => {
                   ))}
               </ol>
               <div>{ResumeLink}</div>
+              <div>{changeThemeButton}</div>
             </StyledLinks>
 
             <Menu />
@@ -229,6 +237,15 @@ const Nav = ({ isHome }) => {
                   <CSSTransition classNames={fadeDownClass} timeout={timeout}>
                     <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                       {ResumeLink}
+                    </div>
+                  </CSSTransition>
+                )}
+              </TransitionGroup>
+              <TransitionGroup component={null}>
+                {isMounted && (
+                  <CSSTransition classNames={fadeDownClass} timeout={timeout}>
+                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
+                      {changeThemeButton}
                     </div>
                   </CSSTransition>
                 )}

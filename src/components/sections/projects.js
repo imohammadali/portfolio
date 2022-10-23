@@ -233,8 +233,7 @@ const Projects = () => {
                   aria-label="External Link"
                   className="external"
                   target="_blank"
-                  rel="noreferrer"
-                >
+                  rel="noreferrer">
                   <Icon name="External" />
                 </a>
               )}

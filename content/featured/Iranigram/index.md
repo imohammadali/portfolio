@@ -3,7 +3,7 @@ date: '1'
 title: 'Iranigram Website'
 cover: './iranigram.webp'
 github: ''
-external: 'https://iranigram.com/'
+external: 'https://iranigram.com/new/'
 tech:
   - PHP
   - Laravel

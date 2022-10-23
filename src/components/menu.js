@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { navLinks } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
+import { useTheme } from '../context/themeContext';
 
 const StyledMenu = styled.div`
   display: none;
@@ -153,11 +154,17 @@ const StyledSidebar = styled.aside`
     margin: 10% auto 0;
     width: max-content;
   }
+  .change-theme {
+    ${({ theme }) => theme.mixins.bigButton};
+    padding: 18px 50px;
+    margin: 10% auto 0;
+    width: max-content;
+  }
 `;
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const { dispatch } = useTheme('dark');
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const buttonRef = useRef(null);
@@ -246,8 +253,7 @@ const Menu = () => {
           onClick={toggleMenu}
           menuOpen={menuOpen}
           ref={buttonRef}
-          aria-label="Menu"
-        >
+          aria-label="Menu">
           <div className="ham-box">
             <div className="ham-box-inner" />
           </div>
@@ -270,6 +276,9 @@ const Menu = () => {
             <a href="/resume.pdf" className="resume-link">
               Resume
             </a>
+            <button className="change-theme" onClick={() => dispatch({ type: 'toggle' })}>
+              change theme
+            </button>
           </nav>
         </StyledSidebar>
       </div>
