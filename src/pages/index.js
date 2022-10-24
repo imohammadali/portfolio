@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Layout, Hero, About, Jobs, Featured, Projects, Contact } from '@components';
-import { ThemeProvider } from '../context/themeContext';
+import { ChangeThemeProvider } from '../context/themeContext';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
 `;
 
 const IndexPage = ({ location }) => (
-  <ThemeProvider>
+  <ChangeThemeProvider>
     <Layout location={location}>
       <StyledMainContainer className="fillHeight">
         <Hero />
@@ -20,7 +20,7 @@ const IndexPage = ({ location }) => (
         <Contact />
       </StyledMainContainer>
     </Layout>
-  </ThemeProvider>
+  </ChangeThemeProvider>
 );
 
 IndexPage.propTypes = {

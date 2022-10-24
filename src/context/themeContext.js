@@ -1,27 +1,21 @@
 import * as React from 'react';
 
-const themeContext = React.createContext();
-function themeReducer(state, action) {
-  switch (action.type) {
-    case 'toggle': {
-      return { selectedTheme: state.selectedTheme === 'dark' ? 'light' : 'dark' };
-    }
-    default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
-    }
-  }
-}
+const themeContext = React.createContext('dark');
 
-function ThemeProvider({ children }) {
-  const [state, dispatch] = React.useReducer(themeReducer, { selectedTheme: 'dark' });
-  const value = { state, dispatch };
+// eslint-disable-next-line react/prop-types
+function ChangeThemeProvider({ children }) {
+  const [selectedTheme, setTheme] = React.useState('dark');
+  const changeTheme = () => {
+    selectedTheme === 'dark' ? setTheme('light') : setTheme('dark');
+  };
+  const value = { selectedTheme, changeTheme };
   return <themeContext.Provider value={value}>{children}</themeContext.Provider>;
 }
 function useTheme() {
   const context = React.useContext(themeContext);
   if (context === undefined) {
-    throw new Error('useCount must be used within a CountProvider');
+    throw new Error('useTheme must be used within a ChangeThemeProvider');
   }
   return context;
 }
-export { ThemeProvider, useTheme };
+export { ChangeThemeProvider, useTheme };

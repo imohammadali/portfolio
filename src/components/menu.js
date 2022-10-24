@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { navLinks } from '@config';
 import { KEY_CODES } from '@utils';
 import { useOnClickOutside } from '@hooks';
-import { useTheme } from '../context/themeContext';
+import { useTheme } from '../context/themeContext.js';
 
 const StyledMenu = styled.div`
   display: none;
@@ -164,7 +164,7 @@ const StyledSidebar = styled.aside`
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { dispatch } = useTheme('dark');
+  const { changeTheme } = useTheme('dark');
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const buttonRef = useRef(null);
@@ -276,7 +276,7 @@ const Menu = () => {
             <a href="/resume.pdf" className="resume-link">
               Resume
             </a>
-            <button className="change-theme" onClick={() => dispatch({ type: 'toggle' })}>
+            <button className="change-theme" onClick={() => changeTheme()}>
               change theme
             </button>
           </nav>

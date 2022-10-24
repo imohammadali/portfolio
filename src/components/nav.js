@@ -7,8 +7,8 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo } from '@components/icons';
-import { useTheme } from '../context/themeContext';
+import { IconLogo, IconDarkTheme, IconLightTheme } from '@components/icons';
+import { useTheme } from '../context/themeContext.js';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -18,7 +18,7 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: ${props => props.theme.navBackground};
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -39,7 +39,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
+        background-color: ${props => props.theme.navBackground};
         box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
 
@@ -58,7 +58,7 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: var(--lightest-slate);
+  color: ${props => props.theme.navColor};
   font-family: var(--font-mono);
   counter-reset: item 0;
   z-index: 12;
@@ -126,6 +126,14 @@ const StyledLinks = styled.div`
     margin-left: 15px;
     font-size: var(--fz-xs);
   }
+  .change-theme-button {
+    ${({ theme }) => theme.mixins.smallButton};
+    margin-left: 15px;
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
 `;
 
 const Nav = ({ isHome }) => {
@@ -158,7 +166,7 @@ const Nav = ({ isHome }) => {
   const timeout = isHome ? loaderDelay : 0;
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
-  const { dispatch } = useTheme('dark');
+  const { selectedTheme, changeTheme } = useTheme('dark');
 
   const Logo = (
     <div className="logo" tabIndex="-1">
@@ -180,8 +188,8 @@ const Nav = ({ isHome }) => {
     </a>
   );
   const changeThemeButton = (
-    <button className="change-theme" onClick={() => dispatch({ type: 'toggle' })}>
-      change theme
+    <button className="change-theme-button" onClick={() => changeTheme()}>
+      {selectedTheme === 'dark' ? <IconLightTheme /> : <IconDarkTheme />}
     </button>
   );
 

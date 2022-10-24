@@ -14,7 +14,10 @@ const theme = {
       desktopL: `max-width: 1400px`,
     },
     body: '#fff',
-    text: '#363537',
+    text: '#0a192f',
+    navBackground: '#fff',
+    navColor: '#8892b0',
+    headingsColor: '#495670',
     mixins,
   },
   dark: {
@@ -31,6 +34,9 @@ const theme = {
     },
     body: '#0a192f',
     text: '#fff',
+    navBackground: 'rgba(10, 25, 47, 0.85)',
+    navColor: '#ccd6f6',
+    headingsColor: '#ccd6f6',
     mixins,
   },
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Head, Loader, Nav, Social, Email, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
-import { useTheme } from '../context/themeContext';
+import { useTheme } from '../context/themeContext.js';
 
 const StyledContent = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const StyledContent = styled.div`
 `;
 
 const Layout = ({ children, location }) => {
-  const { state } = useTheme('dark');
+  const { selectedTheme } = useTheme('dark');
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
 
@@ -53,7 +53,7 @@ const Layout = ({ children, location }) => {
       <Head />
 
       <div id="root">
-        <ThemeProvider theme={state.selectedTheme === 'dark' ? theme.dark : theme.light}>
+        <ThemeProvider theme={selectedTheme === 'dark' ? theme.dark : theme.light}>
           <GlobalStyle />
 
           <a className="skip-to-content" href="#content">
